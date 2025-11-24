@@ -37,7 +37,7 @@ TICKER_MAP = {
     "_spy": "SPY",
     "_qqq": "QQQ"
 }
-genai.configure(api_key="AIzaSyAXCcmFLgObbzbgd-7QqyEG9jP0iW8h2aA") 
+genai.configure(api_key="GOOGLE_API_KEY") 
 session = requests.Session()
 @lru_cache(maxsize=64)
 def duckduckgo_search(query, max_results=8):
@@ -148,9 +148,7 @@ def deep_research(topic: str, depth="normal"):
         "deep": "Write an extremely detailed multi-section expert research report with advanced insights. Use Markdown extensively: headers, tables, bold/italics, code blocks where relevant."
     }
     depth_instruction = depth_map.get(depth, depth_map["normal"])
-    # ------------------------------------------------
-    # Stage 2: Main Research Pass
-    # ------------------------------------------------
+  
     prompt = f"""
 You are a world-class research LLM. Always respond in clean Markdown format.
 Below is raw data scraped from the web:
@@ -190,6 +188,8 @@ You are a fact-checking model. Always respond in clean Markdown format, preservi
 Review the following research report:
 {main_report}
 Fix:
+
+
 - Factual errors
 - Contradictions
 - Unclear statements
@@ -200,33 +200,35 @@ Rewrite ONLY the corrected version. Keep the exact same Markdown structure and s
     return f"# Deep Research Report: {topic}\n\n{checked_report}"
 def agent(user_input: str):
     text = user_input.strip()
-    # --- deep research ---
+   
     if m := re.match(r"deep research (.+)", text, re.I):
         output = deep_research(m.group(1), "deep")
         display(Markdown(output))
         return
-    # --- quick research ---
+    
     if m := re.match(r"quick research (.+)", text, re.I):
         output = deep_research(m.group(1), "shallow")
         display(Markdown(output))
         return
-    # --- normal research ---
+
     if m := re.match(r"research (.+)", text, re.I):
         output = deep_research(m.group(1), "normal")
         display(Markdown(output))
         return
-    # --- stock lookup ---
+
+    
     if m := re.match(r"stock (.+)", text, re.I):
         ticker = m.group(1).strip().upper()
         output = get_stock_history(ticker, days=10)
         display(Markdown(output))
         return
-    # --- default LLM response ---
+
+
+
+    
     response = model.generate_content(text).text
     display(Markdown(f"\n\n{response}"))
-# ===================================================================
-# TALKATIVE AI STOCK ASSISTANT (Conversational Loop)
-# ===================================================================
+
 print("\n" + "="*70)
 print(" xAI QUANT DESK — YOUR PERSONAL STOCK ADVISOR")
 print(" GRU Model + Gemini Analysis + Deep Research Agent")
@@ -249,18 +251,21 @@ def parse_user_input(user_input: str) -> str:
     else:
         query = user_input_lower
   
-    # Direct ticker match
+
     if query.upper() in ["AAPL", "TSLA", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "NFLX", "AMD", "SPY", "QQQ"]:
         return query.upper()
-  
-    # Name to ticker map
+
+
+
+    
     for name, ticker in TICKER_MAP.items():
         if name in query:
             print(f"Recognized '{query}' as {ticker}. Running analysis...\n")
             return ticker
-  
-    # Fallback: no ticker detected
     return None
+
+
+
 def handle_general_chat(user_input: str):
     """Handle non-prediction queries using Gemini as economics/stock expert."""
     general_model = genai.GenerativeModel(
@@ -276,12 +281,13 @@ def handle_general_chat(user_input: str):
 You are a world-class economics professor and stock market strategist with 30+ years at Goldman Sachs.
 Respond professionally, insightfully, and concisely to the user's query about economics, markets, or stocks.
 Include relevant current news, trends, or analysis based on your knowledge (as of {datetime.now().strftime('%Y-%m-%d')}).
+
 Keep it engaging but institutional-grade. If needed, suggest a prediction run.
 User query: {user_input}
 """
     try:
         response = general_model.generate_content(chat_prompt)
-        display(Markdown(response.text)) # <-- PROPER MARKDOWN RENDERING
+        display(Markdown(response.text))
     except Exception as e:
         print("AI: Apologies, a brief technical glitch. Ask me about market trends or try 'predict AAPL'.")
 def main(ticker="AAPL"):
@@ -291,7 +297,7 @@ def main(ticker="AAPL"):
  
     config = Config(ticker)
     os.makedirs('models', exist_ok=True)
-    os.makedirs('reports', exist_ok=True) # ← New: for AI reports
+    os.makedirs('reports', exist_ok=True) s
  
     data_handler = DataHandler(config)
     data = data_handler.download_data()
@@ -342,7 +348,7 @@ def main(ticker="AAPL"):
     historical_prices = data_handler.inverse_target_transform(scaled_data[:, 0])
     plot_forecast(data_handler.dates, historical_prices, future_dates, future_prices,
                   np.std(test_preds - test_actuals) if len(test_actuals)>0 else 1.0, config)
-    # ———————— GEMINI LLM REPORT GENERATION ————————
+
     print(f"\nGenerating institutional-grade AI report using Gemini...")
     generate_comprehensive_report(
         ticker=ticker,
@@ -362,9 +368,8 @@ def main(ticker="AAPL"):
 def generate_comprehensive_report(ticker, historical_prices, future_prices, future_dates,
                                   test_actuals, test_preds, rmse, mae, r2, directional_acc, config):
  
-    # Choose model: fast + cheap OR deeper analysis
     model = genai.GenerativeModel(
-        model_name="gemini-2.0-flash", # Updated to stable model; change if needed
+        model_name="gemini-2.0-flash", 
         generation_config=genai.GenerationConfig(
             max_output_tokens=1600,
             temperature=0.7,
@@ -397,25 +402,25 @@ Use professional tone. Be direct and decisive.
         print(f" COMPREHENSIVE AI INVESTMENT REPORT FOR {ticker.upper()}")
         print("="*80 + "\n")
      
-        # This works in Jupyter, Colab, or VS Code notebooks
+      
         try:
             from IPython.display import Markdown, display
             display(Markdown(response.text))
         except ImportError:
-            print(response.text) # Fallback for plain terminal
+            print(response.text)l
      
-        # Also save to file
+       
         os.makedirs("reports", exist_ok=True)
         with open(f"reports/{ticker}_Gemini_Report_{datetime.now().strftime('%Y%m%d_%H%M')}.md", "w") as f:
             f.write(f"# {ticker.upper()} - AI Investment Report (Gemini)\n\n")
             f.write(f"Generated: {datetime.now().strftime('%B %d, %Y at %I:%M %p')}\n\n")
             f.write(response.text)
          
-        print(f"\nReport saved to reports/{ticker}_Gemini_Report_*.md")
+  
      
     except Exception as e:
         print(f"Gemini API Error: {e}")
-        print("Check your API key and billing status at https://aistudio.google.com/app/apikey")
+       
 if __name__ == "__main__":
     while True:
         try:
@@ -426,17 +431,17 @@ if __name__ == "__main__":
             elif not user_input:
                 print("AI: How can I assist with stocks today? E.g., 'predict Apple' or ask about market news.")
                 continue
-            # Check for research or stock commands first (from deep agent)
+           
             agent(user_input)
-            # If not handled by agent, proceed to stock/general
+       
             ticker = parse_user_input(user_input)
             if ticker:
                 print(f"AI: Understood! Processing '{user_input}' → {ticker}...")
                 main(ticker=ticker)
                 print("\nAI: Analysis complete. What next? (e.g., 'predict Tesla' or ask about economy)")
             else:
-                # General chat mode
+             
                 handle_general_chat(user_input)
         except KeyboardInterrupt:
-            print("\nAI: Session ended. Happy investing!")
+            print("\nAI: Session end.")
             break
