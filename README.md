@@ -1,4 +1,4 @@
-# QuantumForge AI: The Ultimate Neural Trading Oracle
+# QuantumForge AI: The Ultimate Neural Trading Oracle + Research Agent + Market Analyser AI
 <img width="824" height="297" alt="Gemini_Generated_Image_zwndozwndozwndoz" src="https://github.com/user-attachments/assets/ca00b741-2c9f-4a97-88ee-be69b7d267b1" />
 
 # Overview
