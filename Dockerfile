@@ -1,7 +1,6 @@
 FROM python:3.10-slim  # Your choice – perfect!
 
 WORKDIR /app
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     g++ \
@@ -14,21 +13,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir --upgrade pip
-
-# Install from requirements.txt first
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Then override/add PyTorch CPU (latest stable)
 RUN pip install --no-cache-dir \
     torch==2.4.1+cpu torchvision torchaudio \
     --index-url https://download.pytorch.org/whl/cpu
-
 COPY . .
-
 RUN mkdir -p models reports
-
 EXPOSE 8888
-
 CMD ["python", "main.py"]
