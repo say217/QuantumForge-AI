@@ -75,6 +75,10 @@ The DataHandler(Config) class manages the complete data pipeline, beginning with
 ## AI Integration:
 The system uses Gemini with the configuration gemini-2.0-flash (tokens=1600, temp=0.7) and supports a report generator that produces structured Markdown outputs containing sections such as Summary, Performance, Forecast, Risk, Recommendation, and Targets. Each report is saved following the pattern reports/{ticker}_Gemini_Report_{timestamp}.md. For general interactions, the assistant switches to a "Goldman Sachs strategist" persona to handle non-stock queries in a more conversational and analytical tone.
 
+## The Report Generation Agent
+The Report Generation Agent automates the creation of complete, publication-ready investment reports immediately after each stock prediction. Once the deep learning pipeline — featuring Conv1D, BiGRU, and attention mechanisms — completes training and produces a 4-day price forecast with confidence intervals, the system automatically saves high-resolution dark-themed plots, including actual vs. predicted charts, forecast charts with shaded uncertainty, and feature correlation heatmaps. It compiles key numerical results such as RMSE, MAE, R², directional accuracy, predicted prices, and support/resistance levels, then sends all the data, insights, and embedded plots directly to Google Gemini. Gemini generates a professional, beautifully formatted Markdown report, typically 800–1200 words, that includes an executive summary, model performance and accuracy metrics, short-term price forecasts with exact targets, embedded comparison graphs, technical analysis highlights, risk assessment, clear trading recommendations , providing a comprehensive, ready-to-use report for traders and investors.
+
+
 ## Research Agent:
 The research agent provides multi-depth analysis through functions like deep_research(topic, depth='normal') and agent(user_input), drawing from DuckDuckGo's JSON API (10 results) and Wikipedia summaries, with ranking based on snippet length. It aggregates scraped content and sends it through a Gemini prompt to produce a structured ten-section research report with citations, followed by a secondary Gemini fact-checking pass. Users can control depth using commands such as "research X" for normal depth, "quick research X" for shallow output, and "deep research X" for a more detailed, expert-level analysis.
 
@@ -132,6 +136,29 @@ Also the below image of the LLM model’s output, demonstrating that the languag
 
 _Jupyter Notebook Project Output Image_
 
+
+## How It Usefull
+The Enhanced Stock Predictor helps by automating and streamlining tasks that are normally time-consuming, complex, or require expert knowledge. It solves key problems for traders and investors, such as:
+
+- Eliminates manual analysis: Instead of spending hours calculating technical indicators, scanning charts, and researching news, the system provides forecasts, signals, and AI-generated insights instantly.
+
+- Reduces information overload: Traders no longer need to sift through dozens of news sources or reports; the AI synthesizes relevant data and presents concise, actionable information.
+
+- Improves decision-making: By combining deep learning forecasts with technical indicators and confidence measures, it helps users time entries and exits more accurately.
+
+- Supports multi-stock monitoring: Investors managing multiple positions can get live updates and forecasts for several stocks at once, reducing the risk of missing opportunities.
+
+- Speeds research and strategy development: With automated, cited, and fact-checked reports, users can quickly explore sectors, compare stocks, and backtest strategies without extensive manual work.
+
+- Bridges expertise gaps: Beginners or part-time traders gain access to professional-level insights and quantitative analysis that would normally require years of experience or expensive tools.
+In short, it turns complex, repetitive, and data-heavy trading tasks into a fast, reliable, and AI-driven workflow, helping traders save time, reduce errors, and make more informed investment decisions.
+
+Desclimer REGULATORY NOTICE
+This tool is not registered with the SEC, FINRA, FCA, or any other financial regulatory authority.
+
+By using QuantumForge AI, you acknowledge and accept this disclaimer in full.
+
+This is a student-based project created to demonstrate my skills and ideas. It is only a prototype and should not be used for real financial decision-making.
 
 # QUANTUMFORGE AI –  DISCLAIMER  
 <span style="color:#ff2d55;">(November 25, 2025)</span>
