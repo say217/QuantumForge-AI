@@ -2,7 +2,7 @@
 <span style="color:#ff2d55;">November 25, 2025 — Kolkata, West Bengal, India — Created by: Sayak Samanta</span>
 
 
-<img width="824" height="297" alt="Gemini_Generated_Image_zwndozwndozwndoz" src="https://github.com/user-attachments/assets/ca00b741-2c9f-4a97-88ee-be69b7d267b1" />
+<img width="1024" height="402" alt="image" src="https://github.com/user-attachments/assets/5bed300d-6a8e-4539-b8fc-efe15cd48654" />
 
 # Overview
 
