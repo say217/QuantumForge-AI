@@ -1,22 +1,29 @@
 # QuantumForge AI: The Ultimate Stock & Economic Assistant, Market Price Prediction To Deep Research.
-<span style="color:#ff2d55;">November 25, 2025 — Kolkata, West Bengal, India — Created by: Sayak Samanta</span>
+<span style="color:#ff2d55;">November 25, 2025 — Kolkata, West Bengal, India — Created by: Sayak Samanta || </span>
+<span style="color:#ff2d55;">This Project is made for Agents Intensive - Capstone Project, Agents Intensive Course By Google </span>
+
 
 
 <img width="1024" height="402" alt="image" src="https://github.com/user-attachments/assets/5bed300d-6a8e-4539-b8fc-efe15cd48654" />
 
+_AI Generated Image_
+
 # Overview
 
-**(Agents Intensive - Capstone Project)**
-QuantumForge AI, An enhanced Stock Predictor, It is a comprehensive Python-based system designed for stock price forecasting, technical analysis, and generative AI-driven insights. It leverages deep learning (BiGRU with Attention and Conv1D layers), technical indicators, and integrates with Google's Gemini AI for automated investment reports and a conversational research agent. The system supports real-time data fetching via yfinance, model training, evaluation, multi-day forecasting, and interactive querying for stocks, market news, or deep research topics.
+**QuantumForge AI** is an enhanced stock prediction system— a comprehensive Python-based framework designed for `stock price forecasting`, `technical analysis`, and `generative AI–driven insights`, `Deep Research Agent`. It leverages deep learning (BiGRU with Attention and Conv1D layers), technical indicators, and integrates with Google's Gemini AI for automated investment reports and a conversational research agent.
 
-Built for quantitative analysts, traders, and enthusiasts, it provides:
+The system supports real-time data fetching via `yfinance`, model training, evaluation, multi-day forecasting, and interactive querying for stocks, market news, or deep research topics.
 
-- **Predictive Modeling:** Uses historical data to forecast stock prices with uncertainty intervals.
+Built for quantitative analysts, traders, and market enthusiasts, it provides:
+
+- **Predictive Modeling:** Utilizes historical data to forecast stock prices with uncertainty intervals.
 - **Visualization:** Dark-themed plots for distributions, correlations, test results, and forecasts.
-- **AI Augmentation:** Generates professional reports and handles natural language queries.
-- **Extensibility:** Modular design for easy fine-tuning or adding new indicators/models.
+- **AI Augmentation:** Generates professional-grade reports and handles natural language financial queries.
+- **Extensibility:** Modular design enables easy fine-tuning or the addition of new indicators and models.
 
-The project emphasizes reproducibility (seeded randomness), efficiency (mixed-precision training, caching), and usability (conversational CLI loop). **As of the current date (November 25, 2025), it uses up-to-date libraries and assumes access to a GPU for optimal performance.**
+The project emphasizes reproducibility (seeded randomness), efficiency (mixed-precision training, caching), and usability (a conversational CLI loop).  
+**As of November 25, 2025, the project uses up-to-date libraries and assumes access to a GPU for optimal performance.**
+
 
 ## Live Stock Price & Forecast Access
 At any time during the session, you can request instant stock quotes, 10-day price history tables, or full forecasting pipelines. For example:
@@ -25,7 +32,8 @@ At any time during the session, you can request instant stock quotes, 10-day pri
 
 <img width="729" height="450" alt="Screenshot 2025-11-25 015154" src="https://github.com/user-attachments/assets/45bf3e0b-d516-4503-bb4b-04bae2d3947c" />
 
-The project emphasizes reproducibility (seeded randomness), efficiency (mixed-precision training, caching), and usability (conversational CLI loop). As of the current date (November 25, 2025), it uses up-to-date libraries and assumes access to a GPU for optimal performance.
+_Jupyter Notebook Project Output Image_
+
 
 
 ## Model Architecture (Paragraph Version)
@@ -44,6 +52,7 @@ The Trainer(Config) class handles the full training workflow using the Adam opti
 
 </table>
 
+_Jupyter Notebook Project Output Image_
 
 
 | **Category**                 | **Feature Description**                                                                                                                   |
@@ -82,6 +91,7 @@ For evaluation, the trainer computes RMSE, MAE, and R² using inverse-transforme
 </table>
 
 
+_Jupyter Notebook Project Output Image_
 
 ## Installation and Setup
 ```bash
@@ -120,6 +130,8 @@ Also the below image of the LLM model’s output, demonstrating that the languag
   </tr>
 
 </table>
+
+_Jupyter Notebook Project Output Image_
 
 
 # QUANTUMFORGE AI –  DISCLAIMER  
