@@ -1,4 +1,4 @@
-# QuantumForge AI: The Ultimate Stock & Economic Assistant, Market Price Prediction To Deep Research.
+# QuantumForge AI: The Ultimate Trading & Economic Assistant, Market Price Prediction To Deep Research.
 <span style="color:#ff2d55;">November 25, 2025 — Kolkata, West Bengal, India — Created by: Sayak Samanta || </span>
 <span style="color:#ff2d55;">This Project is made for Agents Intensive - Capstone Project, Agents Intensive Course By Google </span>
 
