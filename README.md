@@ -5,7 +5,7 @@
 
 _AI Generated Image_
 
-# Overview
+# Overview     
 
 **QuantumForge AI** is an enhanced stock prediction system— a comprehensive Python-based framework designed for `stock price forecasting`, `technical analysis`, and `generative AI–driven insights`, `Deep Research Agent`. It leverages deep learning (BiGRU with Attention and Conv1D layers), technical indicators, and integrates with Google's Gemini AI for automated investment reports and a conversational research agent.
 
