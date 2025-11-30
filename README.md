@@ -1,7 +1,7 @@
 # QuantumForge AI: The Ultimate Trading & Economic Assistant, Market Price Prediction To Deep Research.
 <span style="color:#ff2d55;">November 25, 2025 </span>
 
-<img width="1024" height="402" alt="image" src="https://github.com/user-attachments/assets/5bed300d-6a8e-4539-b8fc-efe15cd48654" />
+<img width="1024" height="402" alt="image" src="https://github.com/user-attachments/assets/5bed300d-6a8e-4539-b8fc-efe15cd48654" />   
 
 _AI Generated Image_
 
